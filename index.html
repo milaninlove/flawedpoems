@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="id">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sang Dara</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .work-card {
+            transition: all 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .work-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .work-content.active {
+            max-height: 500px;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="w-full">
+  <div class="w-full min-h-full" style="background: linear-gradient(135deg, #1A2332 0%, #2C3E50 100%);"><!-- Header Profile Section -->
+   <div class="w-full py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+<div class="w-32 h-32 mx-auto mb-6 rounded-full flex items-center justify-center text-6xl" style="background-color: #E8F1F5;">
+    <img src="C:\Users\ASUS\Downloads\ami.JPEG" class="w-32 h-32  mx-auto rounded-full flex items-center justify-center text-6xl object-cover">
+     </div>
+     <h1 id="writer-name" class="text-5xl font-bold mb-4" style="color: #E8F1F5; font-family: Georgia, 'Times New Roman', serif;">Eden The Poet</h1>
+     <p id="writer-bio" class="text-xl max-w-2xl mx-auto" style="color: #B8D4E8; font-family: Georgia, 'Times New Roman', serif;">Dengan penanya ia berbicara pada dunia yang hening.</p>
+    </div>
+   </div><!-- Works Section -->
+   <div class="w-full py-12 px-6">
+    <div class="max-w-5xl mx-auto">
+     <h2 id="section-title" class="text-4xl font-bold text-center mb-12" style="color: #E8F1F5; font-family: Georgia, 'Times New Roman', serif;">Flawed Poetry</h2>
+     <div id="works-list" class="grid gap-6"><!-- Work 1 -->
+      <div class="work-card rounded-lg p-6 cursor-pointer" style="background-color: #E8F1F5;" onclick="toggleWork('work1')">
+       <div class="flex justify-between items-center">
+        <h3 id="work-1-title" class="text-2xl font-semibold" style="color: #0F1419; font-family: Georgia, 'Times New Roman', serif;">Night, Rain, and Fog</h3><span id="arrow-1" class="text-3xl transition-transform" style="color: #2C4A6B;">▼</span>
+       </div>
+       <div id="work1" class="work-content mt-4">
+        <p id="work-1-description" class="text-lg leading-relaxed mb-3" style="color: #4A6F8C; font-family: Georgia, 'Times New Roman', serif;">Terkadang malam terasa jauh, hujan menulikan pendengaran, dan kabut membutakan pandangan.</p><button onclick="event.stopPropagation(); readWork(1)" class="px-4 py-2 rounded-lg text-white font-semibold hover:opacity-90 transition" style="background-color: #2C4A6B; font-family: Georgia, 'Times New Roman', serif;">Baca Selengkapnya</button>
+       </div>
+      </div><!-- Work 2 -->
+      <div class="work-card rounded-lg p-6 cursor-pointer" style="background-color: #E8F1F5;" onclick="toggleWork('work2')">
+       <div class="flex justify-between items-center">
+        <h3 id="work-2-title" class="text-2xl font-semibold" style="color: #0F1419; font-family: Georgia, 'Times New Roman', serif;">Louis's Letters: Untuk Linda</h3><span id="arrow-2" class="text-3xl transition-transform" style="color: #2C4A6B;">▼</span>
+       </div>
+       <div id="work2" class="work-content mt-4">
+        <p id="work-2-description" class="text-lg leading-relaxed mb-3" style="color: #4A6F8C; font-family: Georgia, 'Times New Roman', serif;">Untuk kasihku yang terluka sejak dekade yang lalu, aku titipkan surat ini di bawah bantal dimana pikiranmu masih ditemani luka yang basah.</p><button onclick="event.stopPropagation(); readWork(2)" class="px-4 py-2 rounded-lg text-white font-semibold hover:opacity-90 transition" style="background-color: #2C4A6B; font-family: Georgia, 'Times New Roman', serif;">Baca Selengkapnya</button>
+       </div>
+      </div><!-- Work 3 -->
+      <div class="work-card rounded-lg p-6 cursor-pointer" style="background-color: #E8F1F5;" onclick="toggleWork('work3')">
+       <div class="flex justify-between items-center">
+        <h3 id="work-3-title" class="text-2xl font-semibold" style="color: #0F1419; font-family: Georgia, 'Times New Roman', serif;">Lakon</h3><span id="arrow-3" class="text-3xl transition-transform" style="color: #2C4A6B;">▼</span>
+       </div>
+       <div id="work3" class="work-content mt-4">
+        <p id="work-3-description" class="text-lg leading-relaxed mb-3" style="color: #4A6F8C; font-family: Georgia, 'Times New Roman', serif;">Tentang dia yang ... pergi bersama lakonnya.</p><button onclick="event.stopPropagation(); readWork(3)" class="px-4 py-2 rounded-lg text-white font-semibold hover:opacity-90 transition" style="background-color: #2C4A6B; font-family: Georgia, 'Times New Roman', serif;">Baca Selengkapnya</button>
+       </div>
+      </div>
+     </div><!-- Reading View -->
+     <div id="reading-view" class="hidden"><button onclick="closeReading()" class="mb-6 px-6 py-3 rounded-lg text-white font-semibold hover:opacity-90 transition flex items-center gap-2" style="background-color: #2C4A6B; font-family: Georgia, 'Times New Roman', serif;"> ← Kembali ke Daftar Karya </button>
+      <div class="rounded-lg p-8" style="background-color: #E8F1F5;">
+       <h3 id="reading-title" class="text-3xl font-bold mb-6" style="color: #0F1419; font-family: Georgia, 'Times New Roman', serif;"></h3>
+       <div id="reading-content" class="text-lg leading-relaxed whitespace-pre-line" style="color: #4A6F8C; font-family: Georgia, 'Times New Roman', serif;"></div>
+      </div>
+     </div>
+    </div>
+   </div><!-- Social Media Section -->
+   <div class="w-full py-12 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+     <h2 class="text-4xl font-bold mb-8" style="color: #E8F1F5; font-family: Georgia, 'Times New Roman', serif;">Kala kau ingin tahu ranahku</h2>
+     <div class="flex justify-center gap-8"><a id="instagram-link" href="https://instagram.com/amiaaws" target="_blank" rel="noopener noreferrer" class="social-icon flex flex-col items-center gap-3">
+       <div class="w-20 h-20 rounded-full flex items-center justify-center" style="background-color: #E8F1F5;">
+        <svg width="40" height="40" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#2C4A6B" stroke-width="2" /> <circle cx="12" cy="12" r="4" stroke="#2C4A6B" stroke-width="2" /> <circle cx="18.5" cy="5.5" r="1.5" fill="#2C4A6B" />
+        </svg>
+       </div><span class="text-xl font-semibold" style="color: #E8F1F5; font-family: Georgia, 'Times New Roman', serif;">Instagram</span> </a> <a id="linktree-link" href="https://linktr.ee/edenthepoet" target="_blank" rel="noopener noreferrer" class="social-icon flex flex-col items-center gap-3">
+       <div class="w-20 h-20 rounded-full flex items-center justify-center" style="background-color: #E8F1F5;">
+        <svg width="40" height="40" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="5" r="2.5" fill="#2C4A6B" /> <circle cx="6" cy="12" r="2.5" fill="#2C4A6B" /> <circle cx="18" cy="12" r="2.5" fill="#2C4A6B" /> <circle cx="12" cy="19" r="2.5" fill="#2C4A6B" /> <line x1="12" y1="7.5" x2="12" y2="16.5" stroke="#2C4A6B" stroke-width="2.5" stroke-linecap="round" /> <line x1="10.5" y1="9" x2="7.5" y2="11" stroke="#2C4A6B" stroke-width="2.5" stroke-linecap="round" /> <line x1="13.5" y1="9" x2="16.5" y2="11" stroke="#2C4A6B" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+       </div><span class="text-xl font-semibold" style="color: #E8F1F5; font-family: Georgia, 'Times New Roman', serif;">Linktree</span> </a>
+     </div>
+    </div>
+   </div><!-- Footer -->
+   <div class="w-full py-8 px-6 text-center" style="background-color: rgba(74, 55, 40, 0.3);">
+    <p class="text-lg" style="color: #F5E6D3;">    2007 - Dibuat dari A'dn</p>
+   </div>
+  </div>
+  <script>
+        const defaultConfig = {
+            background_color: "#1A2332",
+            surface_color: "#E8F1F5",
+            text_color: "#0F1419",
+            primary_action_color: "#2C4A6B",
+            secondary_action_color: "#4A6F8C",
+            font_family: "Georgia, 'Times New Roman', serif",
+            font_size: 16,
+            writer_name: "Eden The Poet",
+            writer_bio: "Dengan penanya ia berbicara pada dunia yang hening.",
+            section_title: "Flawed Poetry",
+            work_1_title: "Night, Rain, and Fog 1.",
+            work_1_description: "Terkadang malam terasa jauh, hujan menulikan pendengaran, dan kabut membutakan pandangan.",
+            work_2_title: "Louis's Letters: Untuk Linda",
+            work_2_description: "Untuk kasihku yang terluka sejak dekade yang lalu, aku titipkan surat ini di bawah bantal dimana pikiranmu masih ditemani luka yang basah.",
+            work_3_title: "Lakon",
+            work_3_description: "Tentang dia yang ... pergi bersama lakonnya.",
+            instagram_url: "https://instagram.com/amiaaws",
+            linktree_url: "https://linktr.ee/edenthepoet"
+        };
+
+        const workContents = {
+          1: `Bab 1
+
+ Malam terkadang terasa begitu kosong, hampa untuk beberapa waktu dan hanya orang-orang yang dipilih oleh malam itu sendiri, apa tujuan malam melakukan itu? Mengapa kali ini aku yang terpilih? Malam bahkan tidak ingin berbagi jawabannya padaku. Bagi beberapa orang waktu ini bisa menjadi suatu hal terindah, berbagi momen hangat bersama orang-orang kesayangannya atau menikmati waktu sendiri tanpa ada perasaan hampa.
+
+Aku sedang terduduk di ruang tamu sambil menatap jendela besar yang tertutup embun akibat hujan. Sepertinya hujan juga bekerja sama dengan malam sehingga menciptakan embun di kaca, menghalangi pandanganku untuk menatap lampu-lampu kota yang gemerlap di bawah gelapnya langit malam. Teh hangat yang kupikir akan menjadi teman malam pun mulai mendingin, rasanya seperti dikhianati oleh teh hangat yang janjinya akan menemaniku malam ini, mungkin saja ia lelah menungguku melamun berjam-jam sehingga memilih untuk pergi.
+
+Ponsel bahkan tidak bersuara sama sekali, tidak ada notifikasi pesan yang masuk. Sambil menghela nafas aku mengambil benda itu lalu membuka ruang pesan dari seseorang yang dulu selalu menghadiri hidupku. Terdapat banyak pesan suara yang pernah ia kirim dan aku selalu mendengarkannya sehingga karena rindu yang membuncah, aku memutar salah satu pesan suara itu.
+
+“Luna, aku melewati gedung apartemenmu. Kau belum tidur, ya? Lampunya masih menyala.”
+
+Tidak ada reaksi. 
+
+Tidak menangis ataupun marah, hanya rasa hampa seakan-akan ada yang menghilang dari kehidupan ini.
+
+Pesan suara itu berhasil mengalihkan perhatianku ke jendela yang berembun, mungkin aku bisa melakukan sesuatu dengan embun seperti aku kecil dulu. Perlahan aku berdiri lalu melangkah mendekati jendela besar itu, berdiri tepat di depannya dengan ujung jari yang menyentuh embun yang basah. Perlahan mulai melukiskan pola secara abstrak, menulis namaku, membuat emoji wajah datar. Sehingga aku memilih untuk membersihkan embun itu dari jendela agar aku bisa melihat kota yang gemerlapan meskipun diguyur hujan. Sialnya, kabut turut menghalangi pandanganku lalu embun kembali muncul secara perlahan, menghapus pola-pola abstrak yang sudah aku gambar di jendela. 
+
+“Alam, apa yang kau sembunyikan dariku?” Tanyaku dengan nada yang begitu datar dan dingin seperti suhu yang dibuatkan hujan untukku. Kabut kini turut membantu malam dan hujan dalam misinya untukku. Apa yang sebenarnya mereka sembunyikan dariku? Mereka mulai bertindak seakan-akan aku tidak boleh tahu tentang dunia yang ada di luar.
+
+Dengan langkah yang cukup berat, aku meninggalkan tempat itu dan naik ke atas untuk beristirahat. Sesampainya di atas aku langsung merebahkan diriku di atas kasur yang dingin, menatap langit-langit kamar dengan lampu gantung yang redup, sumber cahaya hanya dari luar dan lampu tidur di atas nakas. Aku menoleh lalu meraih saklar lampu tidur itu, menyalakannya lalu mematikannya berkali-kali tanpa alasan pasti, tanpa tujuan yang menentu. Kepalaku kembali memutar rekaman suara itu, menemani suara hujan yang terus mengisi pendengaranku.
+
+“Kau hilang tapi tidak benar-benar pergi.” Kepalaku terangkat untuk menatap cermin yang buram lagi-lagi karena embun. Wajahku samar, tak terlihat begitu jelas. “Aku masih disini, namun tidak menunggu siapapun.”
+
+Mungkin malam memintaku untuk segera tidur karena tidak ada hal yang bisa aku lakukan lagi. Perlahan aku mulai menyelimuti tubuhku, melindunginya dari dingin yang diberikan hujan, lalu memejamkan mata. Perlahan terlelap dalam sunyi, hanya hujan dan detak dari dalam dada yang berbunyi.`,
+            
+            2: `Surat 1: Dekade dari Kita, Untuk Kita.
+
+Lorong waktu, Dekade sebelumnya.
+
+Langit yang menyimpan luka dan kelam, kita berjalan di lorong waktu. Kau genggam bara amarah, aku terjebak dalam resah penyesalan. Dua hati yang saling jauh, saling diam.
+
+Pada suatu senja yang redup, nayanika kami saling tatap. Lukamu luruh, penyesalanku surut. Tangisan tranpa suara, akhirnya kami menyatu. Berdamai bukan pada waktu, tapi diri ini dan satu sama lain.
+
+Satu dekade dari kita, untuk kita.`,
+            
+            3: `Lakon
+Kau menulis lakon pada dini hari
+Hingga tenggelam pada pikiran yang sunyi
+Suatu waltu lakonmu hidup
+Perlahan menyentuhmu hingga merasuk
+
+Kini kau menari mengikuti alunan yang berbisik
+Pijakkanmu melangkah penuh dengan alegori
+Begitu ringan hingga tak menapak pada bumi
+Tak sadar jika hendak mendekati langit
+
+Merasa tinggi dengan jiwa yang terganti
+Nayanikamu terbutakan hingga memutih
+Lakonmu Perlahan meninggalkan sarari
+Semua menghitam dan kau mulai menangis
+
+Kau kembali pada ruang pikiran
+tak merasa puas dengan perjalanan satu malam
+Kini kau menulisnya tak beraturan pula tak berima
+Apa yang kau kecewakan pada hal yang nyata?`
+        };
+
+        function toggleWork(workId) {
+            const content = document.getElementById(workId);
+            const arrowId = workId === 'work1' ? 'arrow-1' : workId === 'work2' ? 'arrow-2' : 'arrow-3';
+            const arrow = document.getElementById(arrowId);
+            
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                arrow.style.transform = 'rotate(180deg)';
+            } else {
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function readWork(workNumber) {
+            const worksList = document.getElementById('works-list');
+            const readingView = document.getElementById('reading-view');
+            const titleElement = document.getElementById(`work-${workNumber}-title`);
+            
+            document.getElementById('reading-title').textContent = titleElement.textContent;
+            document.getElementById('reading-content').textContent = workContents[workNumber];
+            
+            worksList.classList.add('hidden');
+            readingView.classList.remove('hidden');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closeReading() {
+            const worksList = document.getElementById('works-list');
+            const readingView = document.getElementById('reading-view');
+            
+            readingView.classList.add('hidden');
+            worksList.classList.remove('hidden');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        async function onConfigChange(config) {
+            const baseFontStack = 'ui-sans-serif, system-ui, sans-serif';
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseSize = config.font_size || defaultConfig.font_size;
+
+            // Apply colors
+            const mainBg = document.querySelector('body > div');
+            mainBg.style.background = `linear-gradient(135deg, ${config.background_color || defaultConfig.background_color} 0%, ${config.surface_color || defaultConfig.surface_color} 100%)`;
+
+            const profileIcon = document.querySelector('.w-32.h-32');
+            profileIcon.style.backgroundColor = config.surface_color || defaultConfig.surface_color;
+
+            const workCards = document.querySelectorAll('.work-card');
+            workCards.forEach(card => {
+                card.style.backgroundColor = config.surface_color || defaultConfig.surface_color;
+            });
+
+            const socialIcons = document.querySelectorAll('.social-icon > div');
+            socialIcons.forEach(icon => {
+                icon.style.backgroundColor = config.surface_color || defaultConfig.surface_color;
+            });
+
+            // Apply fonts
+            document.getElementById('writer-name').style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.getElementById('writer-name').style.fontSize = `${baseSize * 3}px`;
+            document.getElementById('writer-name').style.color = config.text_color || defaultConfig.text_color;
+
+            document.getElementById('writer-bio').style.fontFamily = `${customFont}, Georgia, 'Times New Roman', serif`;
+            document.getElementById('writer-bio').style.fontSize = `${baseSize * 1.25}px`;
+            document.getElementById('writer-bio').style.color = '#B8D4E8';
+
+            document.getElementById('section-title').style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.getElementById('section-title').style.fontSize = `${baseSize * 2.25}px`;
+            document.getElementById('section-title').style.color = config.text_color || defaultConfig.text_color;
+
+            // Apply text content
+            document.getElementById('writer-name').textContent = config.writer_name || defaultConfig.writer_name;
+            document.getElementById('writer-bio').textContent = config.writer_bio || defaultConfig.writer_bio;
+            document.getElementById('section-title').textContent = config.section_title || defaultConfig.section_title;
+            
+            document.getElementById('work-1-title').textContent = config.work_1_title || defaultConfig.work_1_title;
+            document.getElementById('work-1-title').style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.getElementById('work-1-title').style.fontSize = `${baseSize * 1.5}px`;
+            document.getElementById('work-1-title').style.color = config.primary_action_color || defaultConfig.primary_action_color;
+            
+            document.getElementById('work-1-description').textContent = config.work_1_description || defaultConfig.work_1_description;
+            document.getElementById('work-1-description').style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.getElementById('work-1-description').style.fontSize = `${baseSize * 1.125}px`;
+            document.getElementById('work-1-description').style.color = config.secondary_action_color || defaultConfig.secondary_action_color;
+
+            document.getElementById('work-2-title').textContent = config.work_2_title || defaultConfig.work_2_title;
+            document.getElementById('work-2-title').style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.getElementById('work-2-title').style.fontSize = `${baseSize * 1.5}px`;
+            document.getElementById('work-2-title').style.color = config.primary_action_color || defaultConfig.primary_action_color;
+            
+            document.getElementById('work-2-description').textContent = config.work_2_description || defaultConfig.work_2_description;
+            document.getElementById('work-2-description').style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.getElementById('work-2-description').style.fontSize = `${baseSize * 1.125}px`;
+            document.getElementById('work-2-description').style.color = config.secondary_action_color || defaultConfig.secondary_action_color;
+
+            document.getElementById('work-3-title').textContent = config.work_3_title || defaultConfig.work_3_title;
+            document.getElementById('work-3-title').style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.getElementById('work-3-title').style.fontSize = `${baseSize * 1.5}px`;
+            document.getElementById('work-3-title').style.color = config.primary_action_color || defaultConfig.primary_action_color;
+            
+            document.getElementById('work-3-description').textContent = config.work_3_description || defaultConfig.work_3_description;
+            document.getElementById('work-3-description').style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.getElementById('work-3-description').style.fontSize = `${baseSize * 1.125}px`;
+            document.getElementById('work-3-description').style.color = config.secondary_action_color || defaultConfig.secondary_action_color;
+
+            // Apply social media links
+            document.getElementById('instagram-link').href = config.instagram_url || defaultConfig.instagram_url;
+            document.getElementById('linktree-link').href = config.linktree_url || defaultConfig.linktree_url;
+
+            const socialLabels = document.querySelectorAll('.social-icon span');
+            socialLabels.forEach(label => {
+                label.style.fontFamily = `${customFont}, ${baseFontStack}`;
+                label.style.fontSize = `${baseSize * 1.25}px`;
+                label.style.color = config.text_color || defaultConfig.text_color;
+            });
+
+            const arrows = document.querySelectorAll('[id^="arrow-"]');
+            arrows.forEach(arrow => {
+                arrow.style.color = config.primary_action_color || defaultConfig.primary_action_color;
+            });
+
+            const footerText = document.querySelector('footer p, [style*="background-color: rgba"] p');
+            if (footerText) {
+                footerText.style.fontFamily = `${customFont}, ${baseFontStack}`;
+                footerText.style.fontSize = `${baseSize * 1.125}px`;
+            }
+
+            const sectionHeaders = document.querySelectorAll('h2');
+            sectionHeaders.forEach(header => {
+                if (header.id !== 'section-title') {
+                    header.style.fontFamily = `${customFont}, ${baseFontStack}`;
+                    header.style.fontSize = `${baseSize * 2.25}px`;
+                    header.style.color = config.text_color || defaultConfig.text_color;
+                }
+            });
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => {
+                                config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.surface_color || defaultConfig.surface_color,
+                            set: (value) => {
+                                config.surface_color = value;
+                                window.elementSdk.setConfig({ surface_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                            set: (value) => {
+                                config.primary_action_color = value;
+                                window.elementSdk.setConfig({ primary_action_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                            set: (value) => {
+                                config.secondary_action_color = value;
+                                window.elementSdk.setConfig({ secondary_action_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || defaultConfig.font_family,
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || defaultConfig.font_size,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["writer_name", config.writer_name || defaultConfig.writer_name],
+                    ["writer_bio", config.writer_bio || defaultConfig.writer_bio],
+                    ["section_title", config.section_title || defaultConfig.section_title],
+                    ["work_1_title", config.work_1_title || defaultConfig.work_1_title],
+                    ["work_1_description", config.work_1_description || defaultConfig.work_1_description],
+                    ["work_2_title", config.work_2_title || defaultConfig.work_2_title],
+                    ["work_2_description", config.work_2_description || defaultConfig.work_2_description],
+                    ["work_3_title", config.work_3_title || defaultConfig.work_3_title],
+                    ["work_3_description", config.work_3_description || defaultConfig.work_3_description],
+                    ["instagram_url", config.instagram_url || defaultConfig.instagram_url],
+                    ["linktree_url", config.linktree_url || defaultConfig.linktree_url]
+                ])
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a81ac9147a6b573',t:'MTc2NDc1MDMzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
